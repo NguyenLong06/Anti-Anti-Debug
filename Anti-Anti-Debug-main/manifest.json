@@ -1,0 +1,57 @@
+{
+    "manifest_version": 4,
+    "name": "Ultimate Anti Anti Debug",
+    "description": "Anti anti Debug Cực Mạnh",
+    "version": "5.0.0",
+    "author": "Ng Long",
+    "icons": {
+        "16": "debug-16.png",
+        "48": "debug-48.png",
+        "128": "debug-128.png"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "all_frames": true,
+            "run_at": "document_start",
+            "js": ["content.js"],
+            "world": "MAIN"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "anti-anti-debug.js",
+                "injector.js"
+            ],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Ultimate Anti Anti Debug",
+        "default_icon": {
+            "16": "debug-16.png",
+            "48": "debug-48.png",
+            "128": "debug-128.png"
+        }
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "ultimate-anti-anti-debug@nglong",
+            "strict_min_version": "109.0"
+        }
+    }
+}
